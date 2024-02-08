@@ -1,23 +1,11 @@
----
-pack: trigger_zabbix
-ref: trigger_zabbix.zabbix_trigger
-name: zabbix_trigger
-uid: rule:trigger_zabbix:zabbix_trigger
-tags: []
-type:
-  ref: standard
-  parameters: {}
+name: zabbix_alert_rule
+pack: get_zabbix_msg
+description: Rule to process Zabbix alert messages
 enabled: true
 trigger:
   type: zabbix.event_handler
-  ref: zabbix.event_handler
-  description: Trigger type for zabbix events.
-  parameters: {}
-metadata_file: ''
-context:
-  user: st2admin
 action:
-  ref: trigger_zabbix.hello_st2
+  ref: get_zabbix_msg.msg_st2
   parameters:
-    {{trigger.parameters.alert_message}}
-  description: got alert message
+    alert_message: "{{ payload.payload.alert_message }}"
+
