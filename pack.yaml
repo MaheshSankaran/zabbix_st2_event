@@ -1,0 +1,11 @@
+---
+ref: get_zabbix_msg
+name : get_zabbix_msg
+description : Python sample script to get zabbix event message
+keywords:
+  - python3
+version: 0.0.1
+python_versions:
+  - "3"
+author : Mahesh
+email : mahesh@test.com

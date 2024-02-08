@@ -1,0 +1,1 @@
+Get zabbix event message

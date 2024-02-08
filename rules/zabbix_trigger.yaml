@@ -1,0 +1,23 @@
+---
+pack: trigger_zabbix
+ref: trigger_zabbix.zabbix_trigger
+name: zabbix_trigger
+uid: rule:trigger_zabbix:zabbix_trigger
+tags: []
+type:
+  ref: standard
+  parameters: {}
+enabled: true
+trigger:
+  type: zabbix.event_handler
+  ref: zabbix.event_handler
+  description: Trigger type for zabbix events.
+  parameters: {}
+metadata_file: ''
+context:
+  user: st2admin
+action:
+  ref: trigger_zabbix.hello_st2
+  parameters:
+    {{trigger.parameters.alert_message}}
+  description: got alert message

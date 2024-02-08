@@ -1,0 +1,6 @@
+---
+name: msg_st2
+enabled: True
+description: get zabbix message
+runner_type: python-script
+entry_point: msg_st2.py
