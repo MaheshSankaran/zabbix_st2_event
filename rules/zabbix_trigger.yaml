@@ -7,5 +7,5 @@ trigger:
 action:
   ref: get_zabbix_msg.msg_st2
   parameters:
-    alert_message: "{{ payload.payload.alert_message }}"
+    alert_message: "{{ payload.alert_message }}"
 

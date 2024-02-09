@@ -3,7 +3,7 @@ import sys
 
 def main(alert_message):
     # Your logic here to process the alert message
-    print("Alert message:", alert_message)
+    print("Alert message:", str(alert_message))
 
 if __name__ == "__main__":
     # Extracting the alert message from command-line arguments
