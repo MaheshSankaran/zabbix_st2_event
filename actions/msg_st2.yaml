@@ -1,4 +1,3 @@
----
 name: msg_st2
 enabled: True
 description: get zabbix message
@@ -10,3 +9,8 @@ parameters:
         description: "Message to print."
         required: true
         position: 0
+    subject:
+        type: "string"
+        description: "Subject of the message."
+        required: true
+        position: 1
