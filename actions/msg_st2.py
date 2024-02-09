@@ -1,12 +1,6 @@
-import json
 import sys
-
-def main(alert_message):
-    # Your logic here to process the alert message
-    print("Alert message:", str(alert_message))
-
-if __name__ == "__main__":
-    # Extracting the alert message from command-line arguments
-    alert_message = sys.argv[1]
-    main(alert_message)
+from st2common.runners.base_action import Action
+class MyEchoAction(Action):
+    def run(self, message):
+        print(message)
 
