@@ -4,3 +4,9 @@ enabled: True
 description: get zabbix message
 runner_type: python-script
 entry_point: msg_st2.py
+parameters:
+    message:
+        type: "string"
+        description: "Message to print."
+        required: true
+        position: 0
