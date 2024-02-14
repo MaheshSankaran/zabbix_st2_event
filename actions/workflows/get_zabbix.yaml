@@ -9,13 +9,19 @@ input:
   - email_from
   - email_to
 
+vars:
+  - stdout: null
+output:
+  - stdout: <% ctx().stdout %>
 
 tasks:
   task1:
     action: get_zabbix_msg.msg_st2 subject=<% ctx().subject %> message=<% ctx().message %>
     next:
       - when: <% succeeded() %>
+        publish: stdout=<% result().stdout %>
         do: task2
+        
   task2: 
     action: email.send_email
     input: 
@@ -23,5 +29,9 @@ tasks:
       email_to: 
       - <% ctx().email_to %> 
       email_from: <% ctx().email_from %>
-      message: <% ctx().message %>
+      message: <% ctx().stdout %>
       subject: <% ctx().subject %>
+    next:
+      - when: <% succeeded() %>
+        publish:
+          - stdout: <% task(task2).result.stdout %>
