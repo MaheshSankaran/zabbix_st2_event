@@ -1,12 +1,15 @@
-name: zabbix_alert_rule
+name: zabbix_alert_rule_wf
 pack: get_zabbix_msg
 description: Rule to process Zabbix alert messages
 enabled: true
 trigger:
   type: zabbix.event_handler
 action:
-  ref: get_zabbix_msg.msg_st2
+  ref: get_zabbix_msg.get_zabbix_wf
   parameters:
     message: "{{ trigger.alert_message }}"
     subject: "{{ trigger.alert_subject }}"
+    account: "test"
+    email_to: "mahesh.sankaran@olakrutrim.com"
+    email_from: "mahesh.sankaran@olakrutrim.com"
 

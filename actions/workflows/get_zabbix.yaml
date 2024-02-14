@@ -1,0 +1,27 @@
+version: 1.0
+
+description: A basic sequential workflow.
+
+input:
+  - subject
+  - message
+  - account
+  - email_from
+  - email_to
+
+
+tasks:
+  task1:
+    action: get_zabbix_msg.msg_st2 subject=<% ctx().subject %> message=<% ctx().message %>
+    next:
+      - when: <% succeeded() %>
+        do: task2
+  task2: 
+    action: email.send_email
+    input: 
+      account: <% ctx().account %>
+      email_to: 
+      - <% ctx().email_to %> 
+      email_from: <% ctx().email_from %>
+      message: <% ctx().message %>
+      subject: <% ctx().subject %>

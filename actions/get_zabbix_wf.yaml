@@ -1,0 +1,28 @@
+---
+name: get_zabbix_wf 
+pack: get_zabbix_msg
+description: A basic sequential workflow.
+runner_type: orquesta
+entry_point: workflows/get_zabbix.yaml
+enabled: true
+parameters:
+  message:
+    required: true
+    type: string
+    default: message
+  subject:
+    required: true
+    type: string
+    default: subject
+  account:
+    required: true
+    type: string
+    default: test
+  email_to:
+    required: true
+    type: string
+    default: mahesh.sankaran@krutrim.com
+  email_from:
+    required: true
+    type: string
+    default: mahesh.sankaran@krutrim.com
